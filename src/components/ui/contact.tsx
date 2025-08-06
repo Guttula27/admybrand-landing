@@ -1,68 +1,50 @@
-// src/components/ui/Contact.tsx
 'use client';
 
-import { useState } from 'react';
-
 export default function Contact() {
-  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
-  const [errors, setErrors] = useState<{ [key: string]: string }>({});
-
-  const validate = () => {
-    const newErrors: { [key: string]: string } = {};
-    if (!formData.name.trim()) newErrors.name = 'Name is required';
-    if (!formData.email.trim() || !formData.email.includes('@')) newErrors.email = 'Valid email is required';
-    if (!formData.message.trim()) newErrors.message = 'Message cannot be empty';
-    return newErrors;
-  };
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    const validationErrors = validate();
-    if (Object.keys(validationErrors).length > 0) {
-      setErrors(validationErrors);
-    } else {
-      setErrors({});
-      alert('Form submitted!');
-      setFormData({ name: '', email: '', message: '' });
-    }
-  };
-
   return (
-    <section id="contact" className="py-20 px-4 bg-white dark:bg-gray-900">
-      <div className="max-w-2xl mx-auto">
-        <h2 className="text-3xl font-bold mb-6 text-center">Contact Us</h2>
-        <form onSubmit={handleSubmit} className="space-y-6">
+    <section id="contact" className="py-20 bg-white dark:bg-gray-900">
+      <div className="max-w-4xl mx-auto px-4">
+        <h2 className="text-3xl font-bold text-center text-gray-900 dark:text-white mb-10">
+          Get in Touch
+        </h2>
+        <form className="space-y-6 bg-gray-50 dark:bg-gray-800 p-8 rounded-lg shadow">
           <div>
-            <label className="block mb-1 font-medium">Name</label>
+            <label className="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">
+              Name
+            </label>
             <input
               type="text"
-              value={formData.name}
-              onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-              className="w-full px-4 py-2 border rounded dark:bg-gray-800"
+              className="w-full px-4 py-2 border rounded-md bg-white dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white"
+              placeholder="Your name"
             />
-            {errors.name && <p className="text-red-500 text-sm">{errors.name}</p>}
           </div>
+
           <div>
-            <label className="block mb-1 font-medium">Email</label>
+            <label className="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">
+              Email
+            </label>
             <input
               type="email"
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="w-full px-4 py-2 border rounded dark:bg-gray-800"
+              className="w-full px-4 py-2 border rounded-md bg-white dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white"
+              placeholder="you@example.com"
             />
-            {errors.email && <p className="text-red-500 text-sm">{errors.email}</p>}
           </div>
+
           <div>
-            <label className="block mb-1 font-medium">Message</label>
+            <label className="block mb-2 text-sm font-medium text-gray-700 dark:text-gray-300">
+              Message
+            </label>
             <textarea
-              value={formData.message}
-              onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              rows={4}
-              className="w-full px-4 py-2 border rounded dark:bg-gray-800"
+              rows={5}
+              className="w-full px-4 py-2 border rounded-md bg-white dark:bg-gray-900 border-gray-300 dark:border-gray-700 text-gray-900 dark:text-white"
+              placeholder="Your message"
             />
-            {errors.message && <p className="text-red-500 text-sm">{errors.message}</p>}
           </div>
-          <button type="submit" className="bg-blue-600 text-white px-6 py-2 rounded hover:bg-blue-700">
+
+          <button
+            type="submit"
+            className="w-full py-2 px-4 bg-blue-600 text-white font-semibold rounded-md hover:bg-blue-700 transition"
+          >
             Send Message
           </button>
         </form>

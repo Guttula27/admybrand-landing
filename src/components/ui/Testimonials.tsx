@@ -1,30 +1,31 @@
 // src/components/ui/Testimonials.tsx
-'use client';
-
-const testimonials = [
-  {
-    name: 'Anjali Mehta',
-    quote: 'ADmyBRAND helped us grow 3x in 2 months with automated campaigns!',
-  },
-  {
-    name: 'Ravi Sharma',
-    quote: 'The AI recommendations saved us hours every week.',
-  },
-];
-
 export default function Testimonials() {
   return (
-    <section id="testimonials" className="py-20 px-4 bg-white dark:bg-gray-900">
-      <div className="max-w-4xl mx-auto text-center">
-        <h2 className="text-3xl font-bold mb-10">What Our Users Say</h2>
-        <div className="space-y-8">
-          {testimonials.map((t) => (
-            <div key={t.name} className="p-6 border rounded-lg dark:border-gray-700">
-              <p className="italic text-lg">“{t.quote}”</p>
-              <p className="mt-4 font-semibold">- {t.name}</p>
-            </div>
-          ))}
-        </div>
+    <section className="w-full px-6 sm:px-8 md:px-16 py-20 bg-gray-100 dark:bg-gray-800 text-center">
+      <h2 className="text-3xl sm:text-4xl font-bold mb-12 text-gray-900 dark:text-white">What our users say</h2>
+      <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        {[
+          {
+            name: "Ananya Sharma",
+            text: "ADmyBRAND AI Suite completely transformed how we manage marketing. It's fast, smart, and scalable.",
+          },
+          {
+            name: "Rahul Verma",
+            text: "We saved hundreds of hours with its automation. This is the future of advertising.",
+          },
+          {
+            name: "Meena Kapoor",
+            text: "Intuitive UI, responsive support, and AI tools that really work. Highly recommended.",
+          },
+        ].map((testimonial, i) => (
+          <div
+            key={i}
+            className="bg-white dark:bg-gray-700 p-6 rounded-lg shadow-md hover:shadow-lg transition text-left"
+          >
+            <p className="text-lg mb-4">“{testimonial.text}”</p>
+            <p className="font-semibold text-gray-800 dark:text-gray-100">— {testimonial.name}</p>
+          </div>
+        ))}
       </div>
     </section>
   );

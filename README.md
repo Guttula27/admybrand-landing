@@ -1,58 +1,43 @@
-# ADmyBRAND AI Suite - SaaS Landing Page
+# ADmyBRAND AI Suite – SaaS Landing Page
 
-This is a modern, responsive SaaS landing page built with **Next.js 14**, **TypeScript**, and **Tailwind CSS**, showcasing "ADmyBRAND AI Suite" — an AI-powered marketing tool. It includes reusable components and a polished UI following 2025 design trends.
+A modern, responsive landing page for the **ADmyBRAND AI Suite**, built with:
 
----
-
-## 🚀 Features
-
-- ✨ Hero Section with CTA buttons
-- ⚙️ Features Section (6+ features)
-- 💸 Pricing Section (3-tier pricing cards)
-- 💬 Testimonials Carousel
-- ❓ FAQ Section with collapsible answers
-- 🌙 Dark/Light Mode Toggle
-- 📱 Mobile-first responsive layout
-- 🎨 Glassmorphism, modern typography, subtle animations
+- ⚡ **Next.js 14+ (App Router)**
+- 🎨 **Tailwind CSS 3**
+- 🌘 **Dark mode support**
+- ✨ **Glassmorphism + subtle animations**
+- 🔁 **Reusable UI components**
+- 📱 **Fully mobile responsive**
+- 🤖 **AI-assisted design patterns**
 
 ---
 
-## 🛠 Tech Stack
+## 🚀 Live Demo
 
-- **Framework**: [Next.js 14+](https://nextjs.org/)
-- **Language**: TypeScript
-- **Styling**: Tailwind CSS
-- **Animations**: Framer Motion (used for scroll/fade effects)
-- **Deployment**: Vercel (Live URL coming soon)
+👉 [View Demo on Vercel](https://your-vercel-link.vercel.app)
 
 ---
 
-## 🧩 Component Library
+## 📦 Features
 
-> Reusable components in `/components/ui/`
-
-- `Button.tsx`
-- `Card.tsx`
-- `Navbar.tsx`
-- `Hero.tsx`
-- `Pricing.tsx`
-- `Features.tsx`
-- `Testimonials.tsx`
-- `FAQ.tsx`
-- `ThemeToggle.tsx`
+- **Hero, Features, Pricing, Testimonials, FAQ**
+- **Dark Mode Toggle**
+- **Reusable Components**: Button, Card, Input, Modal
+- **Glass + Blur Effects**
+- **2025 Visual Design Trends**
+- **Fast-loading & Optimized for Vercel**
 
 ---
 
-## 🧠 AI Usage Report
-
-See [`AI_USAGE.md`](./AI_USAGE.md) for details on how AI tools like ChatGPT, GitHub Copilot, and V0.dev were used during development.
-
----
-
-## 📦 Getting Started
-
-### 1. Clone the repository
+## 🛠️ Getting Started
 
 ```bash
-git clone https://github.com/your-username/saas-landing-page.git
-cd saas-landing-page
+# Clone the repo
+git clone https://github.com/yourusername/admybrand-landing.git
+cd admybrand-landing
+
+# Install dependencies
+npm install
+
+# Run locally
+npm run dev

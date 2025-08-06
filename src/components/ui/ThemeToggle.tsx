@@ -4,20 +4,37 @@
 import { useEffect, useState } from 'react';
 
 export default function ThemeToggle() {
-  const [dark, setDark] = useState(false);
+  const [isDark, setIsDark] = useState<boolean | null>(null);
 
   useEffect(() => {
     const root = document.documentElement;
-    if (dark) root.classList.add('dark');
-    else root.classList.remove('dark');
-  }, [dark]);
+    const storedTheme = localStorage.getItem('theme');
+
+    // Set theme from localStorage or system preference
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const enabled = storedTheme === 'dark' || (!storedTheme && prefersDark);
+
+    root.classList.toggle('dark', enabled);
+    setIsDark(enabled);
+  }, []);
+
+  const toggleTheme = () => {
+    const root = document.documentElement;
+    const newTheme = isDark ? 'light' : 'dark';
+
+    root.classList.toggle('dark', newTheme === 'dark');
+    localStorage.setItem('theme', newTheme);
+    setIsDark(!isDark);
+  };
+
+  if (isDark === null) return null; // Don't render until mounted
 
   return (
     <button
-      onClick={() => setDark(!dark)}
-      className="bg-gray-200 dark:bg-gray-700 text-sm px-4 py-2 rounded shadow"
+      onClick={toggleTheme}
+      className="bg-gray-200 dark:bg-gray-700 text-sm px-4 py-2 rounded shadow transition"
     >
-      Toggle {dark ? 'Light' : 'Dark'} Mode
+      Toggle {isDark ? 'Light' : 'Dark'} Mode
     </button>
   );
 }
